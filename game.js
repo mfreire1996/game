@@ -1,8 +1,6 @@
 var wheelOfFortune = document.getElementById('wheelOfFortune');
 
-function wheelOfFortune () {
-	this.current = 4;
-}
+
 
 var wheelOfFortune = new WinWheel ({
 	'outerRadius' 	: 212, //sets the outer radius so that it will fit in the background.
@@ -61,5 +59,5 @@ if (winningSegment.text == 'LOOSE TURN'){
 }
 
 
-}
+
 
