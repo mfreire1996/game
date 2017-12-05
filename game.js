@@ -1,63 +1,25 @@
-var wheelOfFortune = document.getElementById('wheelOfFortune');
-
-
-
-var wheelOfFortune = new WinWheel ({
-	'outerRadius' 	: 212, //sets the outer radius so that it will fit in the background.
-	'innerRadius' 	: 75, // Make the wheel hollow so parts of it don't go all the way to the center
-	'textFontSize' 	: 24, //Sets the default font size for the wheel such as money, lose a turn and prizes
-	'textOrientation':'vertical', //Makes the text vertical so it goes down from the outside of wheel.
-	'textAllignment':'outer', //Align text to outside of wheel.
-	'numSegments'	:24, //Specify number of segments
-	'segments'		: 	//define segments including color and text
-	[					// font size and text color overriden on bankrupt segments.
-		{'fillStyle' : '#red', 'text' : '300'},
-		{'fillStyle' : '#green', 'text' : '450'},
-		{'fillStyle' : '#pink', 'text' : '600'},
-		{'fillStyle' : '#blue', 'text' : '750'},
-		{'fillStyle' : '#orange', 'text' : '500'},
-		{'fillStyle' : '#black', 'text' : 'BANKRUPT', 'textFontSize' : 16, 'textFillStyle' : '#black'},
-		{'fillStyle' : '#purple', 'text' : '3000'},
-		{'fillStyle' : '#yellow', 'text' : '600'},
-		{'fillStyle' : '#pink', 'text' : '700'},
-		{'fillStyle' : '#red', 'text' : '350'},
-		{'fillStyle' : '#green', 'text' : '500'},
-		{'fillStyle' : '#orange', 'text' : '800'},
-		{'fillStyle' : '#lavender', 'text' : '300'},
-		{'fillStyle' : '#yellow', 'text' : '400'},
-		{'fillStyle' : '#blue', 'text' : '650'},
-		{'fillStyle' : '#red', 'text' : '1000'},
-		{'fillStyle' : '#pink', 'text' : '500'},
-		{'fillStyle' : '#orange', 'text' : '400'},
-		{'fillStyle' : '#green', 'text' : '900'},
-		{'fillStyle' : '#black', 'text' : 'BANKRUPT', 'textFontSize' : 16, 'textFillStyle' : '#black'},
-		{'fillStyle' : '#lavender', 'text' : '600'},
-		{'fillStyle' : '#yellow', 'text' : '700'},
-		{'fillStyle' : '#blue', 'text' : '800'},
-		{'fillStyle' : '#white', 'text' : 'LOSE A TURN', 'textFontSize' : 12}
-	],
-	'animation' : 		//specifies the animation to use 
-	{
-		'type' 	   : 'spinToStop',
-		'duration' : 8,
-		'spins'	   : 3,
-		'callbackFinished' : 'alertPrize()'
-	}
- });
-
-function alertPrize(){
-
-var winningSegment = theWheel.getIndicatedSegment(); //gets the segment indicated by the arrow of the wheel background which is at 0 degrees
-
-if (winningSegment.text == 'LOOSE TURN'){
-	alert ('Sorry but you lose a turn.');
-} else if (winningSegment.text == 'BANKRUPT'){
-	alert('Oh no you have gone bankrupt!');
-} else{
-	alert('You habe won' + winningSegment.text);
+var wheel = function() {
+	var wheel = document.getElementById('wheel') 
+	var wheelValues = [5000,600,500,300,500,800,550,400,300,900,500,300,900,0,600,400,300,2,800,350,450,700,300,600]
 }
-}
+	
+var img = document.querySelector('img'); //the querySelector method returns the first element that matches a specidified CSS in the document
+// The querySelector() method only returns the first element that matches the specified selectors. 
+img.addEventListener('click', onClick, false); //addEventListener method attach an event handler to an element so that you can do something useful when an event is triggered. 
 
 
 
+function onClick() {
+    this.removeAttribute('style');
+    
+    var deg = 500 + Math.round(Math.random() * 500); //what math.round do is that it rounds to the nearest integer
+    
+    var css = '-webkit-transform: rotate(' + deg + 'deg);';
+    
+    this.setAttribute(
+        'style', css
+    );
+} 
+
+// var consonant = prompt("Please enter a consonant", " ");
 
